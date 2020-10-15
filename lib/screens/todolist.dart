@@ -48,7 +48,10 @@ class TodoListState extends State {
                 debugPrint("Tapped on " + 
                 this.todos[position].id.toString());
                 navigateToDetail( this.todos[position] );
-              }),
+              },
+              
+              ),
+            
         );
       },
     );

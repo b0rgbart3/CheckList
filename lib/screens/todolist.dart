@@ -25,7 +25,9 @@ class TodoListState extends State {
         floatingActionButton: FloatingActionButton(
             onPressed:  () { navigateToDetail( Todo('',3,'') ); },
             tooltip: "Add new Todo",
-            child: new Icon(Icons.add)));
+            child: new Icon(Icons.add)
+            )
+            );
   }
 
   ListView todoListItems() {
@@ -75,10 +77,10 @@ class TodoListState extends State {
   Color getColor(int priority) {
     switch (priority) {
       case 1:
-        return Colors.red;
+        return Colors.blue;
         break;
       case 2:
-        return Colors.orange;
+        return Colors.lightBlue;
         break;
       case 3:
         return Colors.green;

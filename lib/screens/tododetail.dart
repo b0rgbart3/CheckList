@@ -39,7 +39,7 @@ class TodoDetailState extends State {
     TextStyle textStyle = Theme.of(context).textTheme.bodyText1;
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
+        automaticallyImplyLeading: true,
         title: Text(todo.title),
         actions: <Widget>[
           PopupMenuButton<String>(
@@ -60,6 +60,14 @@ class TodoDetailState extends State {
           child: ListView(children: <Widget>[
             Column(
               children: <Widget>[
+               Align( alignment: Alignment.topRight,
+               child: IconButton(
+                 iconSize: 34.0,
+                  icon: Icon(Icons.delete_forever),
+          tooltip: 'Delete this Item',
+          onPressed: () {deleteItem();}
+                ),
+                ),
                 TextField(
                   controller: titleController,
                   style: textStyle,
@@ -99,34 +107,25 @@ class TodoDetailState extends State {
                   )
               ],
             )
-          ])),
+          ])
+          ),
+            floatingActionButton: FloatingActionButton(
+            onPressed:  () { save(); },
+            tooltip: "Save this Todo",
+            child: IconButton( iconSize: 44.0, icon: Icon( Icons.check ))
+            ),
     );
   }
 
   void select (String value) async {
-    int result;
+   
 
     switch( value) {
       case mnuSave:
         save();
         break;
       case mnuDelete:
-        Navigator.pop(context, true);
-        if (todo.id==null) {
-          return;
-        }
-        result = await helper.deleteTodo(todo.id);
-        if (result != 0) {
-          AlertDialog alertDialog = AlertDialog(
-            title: Text("Delete Todo"),
-            content: Text("The Todo has been deleted"),
-
-          );
-          showDialog(
-            context: context,
-            builder: (_) => alertDialog);
-          
-        }
+        deleteItem();
         break;
       case mnuBack:
         Navigator.pop(context, true);
@@ -137,6 +136,25 @@ class TodoDetailState extends State {
     }
   }
 
+  void deleteItem() async {
+     int result;
+    Navigator.pop(context, true);
+        if (todo.id==null) {
+          return;
+        }
+        result = await helper.deleteTodo(todo.id);
+        if (result != 0) {
+          AlertDialog alertDialog = AlertDialog(
+            title: Text("Delete Item"),
+            content: Text("The Checklist Item has been deleted"),
+
+          );
+          showDialog(
+            context: context,
+            builder: (_) => alertDialog);
+          
+        }
+  }
 
   void save() {
     todo.date = new DateFormat.yMd().format(DateTime.now());

@@ -1,17 +1,37 @@
-# todos
-
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
 # CheckList
+
+A Flutter / Dart project.
+
+<a name="Usage"></a>
+## Usage
+```
+flutter run
+```
+
+<a name="Technology"></a>
+## Technology
+1.  Flutter
+2.  Dart
+
+<a name="Devices"></a>
+## Technology
+1.  iOS
+2.  Android
+
+<a name="User_Story"></a>
+## User Story
+```
+As a human I want to keep a checklist 
+of things that I need to get done 
+that I can prioritize 
+```
+
+
+
+**on github:** <a href='github.com/b0rgBart3'>b0rgBart3</a>
+
+[![](https://github.com/b0rgBart3.png?size=90)](https://github.com/remarkablemark)
+
+Email: borgBart3@gmail.com
+
+

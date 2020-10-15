@@ -52,7 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(appBar: new AppBar(
-      title: new Text(widget.title),
+      title: new Text(widget.title, style: TextStyle(fontWeight: FontWeight.bold),),
       ),
 
       body: TodoList(),

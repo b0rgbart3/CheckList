@@ -25,7 +25,7 @@ class TodoListState extends State {
         floatingActionButton: FloatingActionButton(
             onPressed:  () { navigateToDetail( Todo('',3,'') ); },
             tooltip: "Add new Todo",
-            child: new Icon(Icons.add)
+            child: IconButton( iconSize: 44.0, icon: Icon( Icons.add ))
             )
             );
   }

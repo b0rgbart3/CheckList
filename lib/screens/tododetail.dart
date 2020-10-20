@@ -63,7 +63,7 @@ class TodoDetailState extends State {
             save();
           },
           tooltip: "Save this Todo",
-          child: IconButton(iconSize: 34.0, icon: Icon(Icons.note_add))),
+          child: IconButton(iconSize: 34.0, icon: Icon(Icons.save))),
     );
   }
 

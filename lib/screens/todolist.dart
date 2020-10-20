@@ -39,8 +39,9 @@ class TodoListState extends State {
           elevation: 2.0,
           child: ListTile(
               leading: CircleAvatar(
+                  
                   backgroundColor: getColor(this.todos[position].priority),
-                  child: Text(this.todos[position].priority.toString())
+                  child: Text(this.todos[position].priority.toString(), style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),)
                   ),
               title: Text(this.todos[position].title),
               subtitle: Text(this.todos[position].date),
@@ -80,13 +81,13 @@ class TodoListState extends State {
   Color getColor(int priority) {
     switch (priority) {
       case 1:
-        return Colors.blue;
+        return Colors.lightBlue[900];
         break;
       case 2:
-        return Colors.lightBlue;
+        return Colors.lightBlue[700];
         break;
       case 3:
-        return Colors.green;
+        return Colors.lightBlue[400];
         break;
       default:
         return Colors.green;

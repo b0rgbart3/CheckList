@@ -5,6 +5,7 @@ class Todo {
   String _description;
   String _date;
   int _priority;
+  bool _completed = false;
                                                 // optional parameter
   Todo(this._title, this._priority, this._date, [this._description]);
 
@@ -18,6 +19,8 @@ class Todo {
   String get description => _description;
   int get priority => _priority;
   String get date => _date;
+  bool get completed => _completed;
+
 // Setters
 
   set title(String newTitle) {
@@ -42,12 +45,18 @@ class Todo {
     _date = newDate;
   }
 
+  set completed(bool completed) {
+    _completed = completed;
+  }
+
+
   Map<String, dynamic> toMap() {
     var map = Map<String, dynamic>();
     map["title"] = _title;
     map["description"] = _description;
     map["priority"] = _priority;
     map["date"] = _date;
+    map["completed"] = _completed;
     if (_id != null) {
       map["id"] = _id;
     }
@@ -60,5 +69,6 @@ class Todo {
     this._description = o["description"];
     this._priority = o["priority"];
     this._date = o["date"];
+    this._completed = o["completed"];
   }
 }

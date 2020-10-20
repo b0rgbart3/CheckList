@@ -37,22 +37,37 @@ class TodoListState extends State {
         return Card(
           color: Colors.white,
           elevation: 2.0,
-          child: ListTile(
-              leading: CircleAvatar(
-                  
-                  backgroundColor: getColor(this.todos[position].priority),
-                  child: Text(this.todos[position].priority.toString(), style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),)
-                  ),
-              title: Text(this.todos[position].title),
-              subtitle: Text(this.todos[position].date),
-              onTap: () {
-                debugPrint("Tapped on " + 
-                this.todos[position].id.toString());
-                navigateToDetail( this.todos[position] );
-              },
-              
-              ),
-            
+          child:GestureDetector( 
+                                      child: Stack (
+                                        children: <Widget>[
+                                        ListTile(
+                                        leading: CircleAvatar(
+                                            
+                                            backgroundColor: getColor(this.todos[position].priority),
+                                            child: Text(this.todos[position].priority.toString(), style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),)
+                                            ),
+                                        title: Text(this.todos[position].title),
+                                        subtitle: Text(this.todos[position].date),
+                                        trailing: Text( this.todos[position].completed.toString() ),
+                                        onTap: () { 
+                                          
+                                         setState(() {
+                                           
+                                          this.todos[position].completed = !this.todos[position].completed;
+                                               });
+                                         },
+
+                                        
+                                        
+                                        ),
+                                  
+                                        ]
+                                      ),
+                      onDoubleTap: () {
+                          navigateToDetail( this.todos[position] );
+                                        },
+
+          )
         );
       },
     );

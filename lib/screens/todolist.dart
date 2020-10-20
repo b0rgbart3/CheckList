@@ -48,12 +48,26 @@ class TodoListState extends State {
                                             ),
                                         title: Text(this.todos[position].title),
                                         subtitle: Text(this.todos[position].date),
-                                        trailing: Text( this.todos[position].completed.toString() ),
+                                        trailing: 
+                                        (
+                                          this.todos[position].completed == true ?
+
+                                          IconButton(iconSize: 34.0, icon: Icon(Icons.check))
+                                          
+                                          :
+
+                                          Text('')
+                                        )
+                                        ,
                                         onTap: () { 
                                           
                                          setState(() {
                                            
-                                          this.todos[position].completed = !this.todos[position].completed;
+                                                  if( this.todos[position].completed == true) {
+                                              this.todos[position].completed = false;
+                                            } else {
+                                              this.todos[position].completed = true;
+                                            }
                                                });
                                          },
 
